@@ -1,0 +1,535 @@
+{
+  "process_exp": {
+    "label_pool": [
+      "Assumptive Query Bias: Embedded unverified assumption (e.g., founding role) in query influencing result interpretation",
+      "Assumptive Query Bias: Omitted direct query on central role (Founding EiC of PVLDB) despite its relevance to Volume 7",
+      "Asymmetric Follow-Up Effort: Pursued one lead deeply while neglecting parallel investigation of other线索",
+      "Contextual Scope Omission: Failed to specify critical context (e.g., Fall vs Spring) in search queries",
+      "Contextual Scope Omission: Query lacked event linkage (e.g., location/date) to precisely tie agreement to award day",
+      "Event Conflation Due to Surface Similarity: Assumed relevance based on partial match (e-commerce, grand prize) without full validation",
+      "Event Conflation Due to Surface Similarity: Mistook related event (alumni gathering) for target event (flag授旗 ceremony)",
+      "Factual Query Error: Introduced incorrect entity name ('Hengqin' instead of 'Hongqiao') leading to irrelevant results",
+      "Fragmented Query Strategy: Split integrated concept into disjoint searches risking partial/misleading results",
+      "Inference Opportunity Missed: Failed to verify Volume 7 falls within Jagadish’s editorial tenure despite available dates",
+      "Inference Opportunity Missed: Missed logical deduction that 2014 (Vol 7) aligns with end of Jagadish’s EiC term",
+      "Inference Opportunity Missed: Over-relied on searching instead of reasoning that Volume 7 (2014) occurred during Jagadish’s EiC term",
+      "Keyword Coverage Insufficiency: Failed to include alternative expressions (e.g., '佳绩', '成绩') in query set",
+      "Language & Terminology Misalignment: Failed to consistently prioritize institution name in queries for affiliation check",
+      "Language & Terminology Misalignment: Overly broad English-only queries missed regionally published key details",
+      "Language & Terminology Misalignment: Relied solely on English queries for content primarily available in Chinese sources",
+      "Language & Terminology Misalignment: Used English queries despite Chinese origin and better-localized coverage in native sources",
+      "Methodological Fixation Without Adaptation: Persisted in broad keyword variations despite evidence of ineffectiveness",
+      "Methodological Fixation Without Adaptation: Repeated ineffective queries without strategy adjustment or use of names/affiliations",
+      "Methodological Fixation Without Adaptation: Repeated same search method without shifting to targeted domains after failure",
+      "Overloaded Query Design: Attempted dual-purpose query risking diluted or incomplete results",
+      "Premature Result Dismissal: Ignored titled result due to lack of snippet detail despite sufficient event indication",
+      "Premature Result Dismissal: Ignored top-ranked result with explicit awardee info in favor of ambiguous past-year entry",
+      "Query Design Flaw: Used English abbreviation 'AI' instead of full Chinese term in Chinese-language search context",
+      "Query Phrasing Suboptimality: Used slightly non-standard phrasing reducing precision in official source retrieval",
+      "Source Authority Neglect: Failed to prioritize official domains (e.g., university sites) in query formulation and verification",
+      "Source Authority Neglect: Relied on general web results instead of authoritative academic society websites",
+      "Source Authority Neglect: Used English-translated queries and excluded high-authority .edu.cn domains for Chinese domestic event",
+      "Source-Type Misjudgment: Did not consider role-specific information may reside in front matter or official publication sections",
+      "Temporal Reasoning Failure: Assumed role continuity without verifying current status posthumously",
+      "Terminological Imprecision: Keywords too generic, missing core technical terms like 'AIOps' or '智能运维管理'",
+      "Terminological Imprecision: Missed inclusion of standard product terminology (e.g., 'AIOps') increasing noise",
+      "Terminological Imprecision: Missed inclusion of standard product terminology (e.g., 'PVLDB', 'SIGMOD')",
+      "Unverified Cross-Source Inference: Accepted partial/ambiguous phrase from single source as confirmed fact",
+      "Unverified Cross-Source Inference: Conflated DBCares committee membership with PVLDB founding role without verification"
+    ],
+    "Query Phrasing Suboptimality: Used slightly non-standard phrasing reducing precision in official source retrieval": [
+      {
+        "exp_id": 1,
+        "behavior": "The student identified the key components of the question and formulated two targeted search queries to retrieve relevant information using a search tool.",
+        "mistake": "While the search strategy is sound, the first query uses slightly different phrasing (\"李强 总理 第七届中国国际进口博览会 开放合作 建议\") compared to what might yield more precise official sources. The second trajectory’s query includes “开幕式” (opening ceremony), which helps narrow results to the specific event context and may improve relevance.",
+        "guidance": "To increase precision, include contextual keywords such as “开幕式” in your search queries to ensure results are tied directly to the speech at the opening ceremony rather than general statements."
+      }
+    ],
+    "Language & Terminology Misalignment: Relied solely on English queries for content primarily available in Chinese sources": [
+      {
+        "exp_id": 2,
+        "behavior": "The student identified the need to find the date of the award ceremony and used it as a key to locate the associated agreement, initiating searches using Chinese keywords.",
+        "mistake": "While the approach is logical, the second trajectory uses English-only search queries that may not retrieve the most relevant localized announcements (e.g., from Moonton’s Chinese site), leading to potentially incomplete or misinterpreted results. The correct answer comes from a Chinese source confirming a \"strategic cooperation agreement,\" but the wrong trajectory relies solely on English sources mentioning a \"Memorandum of Understanding (MoU).\"",
+        "guidance": "When researching events involving international partnerships where one party is Chinese (like Moonton), consider including both English and Chinese search terms to capture official press releases from all involved organizations. Also, verify whether different sources use equivalent terms like “MoU” and “strategic cooperation agreement” — they might refer to the same arrangement."
+      }
+    ],
+    "Contextual Scope Omission: Failed to specify critical context (e.g., Fall vs Spring) in search queries": [
+      {
+        "exp_id": 3,
+        "behavior": "The student identified the need to locate the schedule of the Inclusive Connections Lounge and initiated a web search with multiple related queries.",
+        "mistake": "While the student’s approach is logical, they did not include a critical detail in their search strategy—specifically, ensuring that results pertain to the *Fall* meeting rather than the Spring meeting, which could lead to confusion if not carefully filtered.",
+        "guidance": "When reviewing search results, make sure to verify the event type (Fall vs. Spring Meeting) and dates explicitly mentioned in the document or webpage. Prioritize official MRS sources like .org links and check the title or header of PDFs for confirmation."
+      }
+    ],
+    "Source-Type Misjudgment: Did not consider role-specific information may reside in front matter or official publication sections": [
+      {
+        "exp_id": 4,
+        "behavior": "The student has identified the goal and initiates a web search with targeted queries including \"Information Director PVLDB Volume 3 2010\", \"Information Director PVLDB Volume 5 2011\", and \"PVLDB editorial board 2010 2011\".",
+        "mistake": "While the approach is logical, the student does not consider that roles like \"Information Director\" may be listed in front matter documents (e.g., prefaces or editorial boards) rather than general articles, and thus may require visiting official publication pages or PDF front matter directly.",
+        "guidance": "Consider that leadership roles like 'Information Director' are often listed in the front matter of journal volumes (such as the first few pages of a PDF). When searching, try to locate official PDFs of the volume’s front matter or editorial board listings."
+      }
+    ],
+    "Language & Terminology Misalignment: Overly broad English-only queries missed regionally published key details": [
+      {
+        "exp_id": 5,
+        "behavior": "The student correctly breaks down the problem into two components and initiates searches in both Chinese and English, showing an attempt at comprehensive information gathering.",
+        "mistake": "While the student uses Chinese sources in one trajectory successfully, in this incorrect trajectory they rely solely on English-language queries which may miss crucial information published primarily in Chinese or regional outlets. Additionally, their query structure is too broad, combining multiple concepts (award, association, agreement) without isolating core terms effectively.",
+        "guidance": "Try searching for the award announcement first using simpler, more direct phrases like \"Mobile Legends wins esports award 2024\", and consider including Chinese keywords if results are limited. Focus on identifying the exact date before moving to the second part of your question."
+      }
+    ],
+    "Factual Query Error: Introduced incorrect entity name ('Hengqin' instead of 'Hongqiao') leading to irrelevant results": [
+      {
+        "exp_id": 6,
+        "behavior": "The student has correctly identified the two key components of the question and initiated a search using relevant keywords in Chinese, showing an understanding of the need for external information retrieval.",
+        "mistake": "Although the initial search query is mostly accurate, the student incorrectly refers to \"Hengqin International Economic Forum\" instead of \"Hongqiao International Economic Forum\", introducing a factual error in the query that could lead to irrelevant or misleading results.",
+        "guidance": "Before proceeding, double-check the official names of events and forums you are searching for. Make sure the spelling and translation of proper nouns—especially names of places and institutions—are accurate. For example, confirm whether it’s “Hengqin” or “Hongqiao” based on prior knowledge or reliable sources."
+      }
+    ],
+    "Language & Terminology Misalignment: Used English queries despite Chinese origin and better-localized coverage in native sources": [
+      {
+        "exp_id": 7,
+        "behavior": "The student recognizes the need to find a specific event (the signing of an agreement) tied to a precise date (the day of the award ceremony) and uses search tools with multi-query inputs in English.",
+        "mistake": "The student relies on English-language queries despite the original question being in Chinese and likely having better coverage in Chinese sources. This reduces access to key details (e.g., the official Moonton.cn announcement). Additionally, they do not explicitly extract or verify the *date* of the award first, which is critical for cross-referencing the agreement.",
+        "guidance": "Try using Chinese search terms to locate official announcements from Moonton or the Saudi Esports Federation. First, confirm the exact date of the award ceremony before searching for agreements made on that same day."
+      }
+    ],
+    "Terminological Imprecision: Keywords too generic, missing core technical terms like 'AIOps' or '智能运维管理'": [
+      {
+        "exp_id": 8,
+        "behavior": "学生认识到问题涉及U-Center平台中的特定功能模块，并计划通过搜索来定位该模块，选择了与知识图谱、AI和功能模块相关的关键词进行查询.",
+        "mistake": "学生使用的搜索关键词虽然相关，但不够精确，未能直接聚焦于“运维智能大脑”这一核心概念或“智能运维管理AIOps”这一标准答案。关键词过于分散，可能导致检索结果包含干扰信息（如其他公司的u-center工具），从而影响后续判断的准确性.",
+        "guidance": "建议在搜索时，优先使用问题中出现的核心术语组合进行精确匹配，例如将“构建运维智能大脑”、“知识图谱”、“系统画像”和“AIOps”作为关键短语进行搜索，这样可以更直接地定位到官方文档中对功能模块的定义."
+      }
+    ],
+    "Contextual Scope Omission: Query lacked event linkage (e.g., location/date) to precisely tie agreement to award day": [
+      {
+        "exp_id": 9,
+        "behavior": "The student identifies the two key facts needed—(1) the date of the award win and (2) the nature of the agreement signed with the Saudi Esports Association—and attempts to retrieve them through targeted search queries.",
+        "mistake": "While the approach is logical, the second query (\"Mobile Legends: Bang Bang 沙特电竞协会 协议 2024\") is too vague and may not yield precise results about an agreement signed on the *same day* as the award ceremony. The lack of contextual linkage (e.g., mentioning the event or location) reduces precision.",
+        "guidance": "When searching for agreements tied to a specific event, include contextual keywords such as the name of the event (e.g., \"Esports Awards 2024\") or location (e.g., \"Riyadh\") to increase the likelihood of finding co-occurring announcements. This helps ensure both events are linked in time and context."
+      }
+    ],
+    "Fragmented Query Strategy: Split integrated concept into disjoint searches risking partial/misleading results": [
+      {
+        "exp_id": 10,
+        "behavior": "The student recognizes the need to identify both an application and its corresponding architecture in the 新华三 (H3C) industrial internet platform and initiates a search using two separate, somewhat generic queries focused on \"application\" and \"architecture.\"",
+        "mistake": "The queries are too narrow and fragmented, failing to capture the integrated nature of the solution—specifically, that the same system (e.g., “industrial digital brain”) encompasses both the application and the multi-level architecture. By splitting the search into disjoint components, the student risks retrieving partial or misleading results (e.g., mistaking \"industrial governance platform\" as the primary app instead of part of a broader framework).",
+        "guidance": "Try searching for solutions that connect multiple levels—from devices to industries—within H3C’s platform. Look for terms like “end-to-end,” “multi-level,” or “integrated” that suggest a unified application and architecture solving problems across all layers."
+      }
+    ],
+    "Query Design Flaw: Used English abbreviation 'AI' instead of full Chinese term in Chinese-language search context": [
+      {
+        "exp_id": 11,
+        "behavior": "The student has formulated a plan to locate information about the AI 2402 class meeting held on November 9, 2024, by identifying key elements such as the university name, college, class, date, and topic (anti-drug work), and has initiated web searches using these keywords.",
+        "mistake": "While the initial search query includes relevant terms, it fails to prioritize or refine keywords based on likely official sources (e.g., university websites or news portals). Additionally, one of the queries uses an English abbreviation (\"AI\") instead of the full Chinese term (\"人工智能\"), which may reduce accuracy in searching Chinese-language content.",
+        "guidance": "When searching for specific academic events at Chinese universities, use precise, full Chinese names of departments and classes, and prioritize including site-specific domains like \".edu.cn\" to target official institutional websites."
+      }
+    ],
+    "Methodological Fixation Without Adaptation: Repeated same search method without shifting to targeted domains after failure": [
+      {
+        "exp_id": 12,
+        "behavior": "The student observes that the initial search results are irrelevant or unhelpful and attempts to adjust their approach by refining the search queries, maintaining focus on the same type of tool (general web search) but changing the phrasing of the keywords.",
+        "mistake": "The student repeats the same method—broad Google-style searching—without adapting the strategy based on prior failure. There is no shift toward more targeted approaches (e.g., visiting known university domain sites directly or checking official notice boards).",
+        "guidance": "If repeated general searches fail, consider switching strategies—for example, manually navigating to the official website of Shandong University of Finance and Economics’ School of Computer Science and Artificial Intelligence to look for announcements or news sections."
+      }
+    ],
+    "Methodological Fixation Without Adaptation: Persisted in broad keyword variations despite evidence of ineffectiveness": [
+      {
+        "exp_id": 13,
+        "behavior": "The student persists in using broad online search queries after two unsuccessful attempts, continuing to expect that minor variations in keyword phrasing will yield better results, while not leveraging any domain-specific knowledge about how university event records are typically published.",
+        "mistake": "The student exhibits methodological fixation—continuing to apply the same ineffective technique despite clear evidence of its ineffectiveness—rather than diagnosing why the searches are failing and adopting alternative pathways.",
+        "guidance": "When standard searches repeatedly fail, question whether the tool itself is appropriate; sometimes, directly accessing trusted websites via URL or using advanced search operators (like `site:sdufe.edu.cn`) can bypass noise and lead to faster answers."
+      }
+    ],
+    "Overloaded Query Design: Attempted dual-purpose query risking diluted or incomplete results": [
+      {
+        "exp_id": 14,
+        "behavior": "The student is attempting to use a dual-query search to simultaneously find information about the 2024 award recipient and Professor Starr’s current responsibilities at the POM Journal. They are relying on a single search action to answer both parts of the question.",
+        "mistake": "The dual-query approach may result in diluted or incomplete results because search engines often prioritize one query over another when multiple are combined. This increases the risk of missing critical details, especially for less prominent or more nuanced information such as current roles. In this case, while the recipient (Brad Sorenson) is clearly listed, the second part of the query fails to surface accurate information about Professor Starr's current responsibilities due to ambiguity and potential obsolescence of data.",
+        "guidance": "Try separating your queries into focused searches. Start with finding the 2024 award recipient first, confirm it with reliable sources, then conduct a dedicated follow-up search specifically for Professor Starr’s most recent role in the POM Journal. This will help avoid mixing potentially conflicting or outdated information."
+      }
+    ],
+    "Temporal Reasoning Failure: Assumed role continuity without verifying current status posthumously": [
+      {
+        "exp_id": 15,
+        "behavior": "The student has found partial confirmation of the award recipient but is now trying to infer Professor Starr’s current role based on historical positions, particularly his long tenure as editor-in-chief of an INFORMS journal. They do not yet recognize that “current responsibility” must account for whether the person is still active.",
+        "mistake": "The student assumes continuity of role without verifying current status. By not questioning whether Professor Starr could hold a current position after passing away, they overlook a key contradiction in the timeline. This leads them to incorrectly pursue further searches for an active role rather than concluding that no current responsibility exists due to his death.",
+        "guidance": "Before searching again, consider checking if there are any indications of Professor Starr’s current status—such as retirement, emeritus status, or obituaries. If someone is no longer alive, they cannot hold a current professional responsibility. Look for recent announcements or tributes that might clarify this."
+      },
+      {
+        "exp_id": 22,
+        "behavior": "The student has identified the need to gather external information and initiates a web search using two targeted queries: one for the award recipient and another for Professor Starr’s current responsibilities.",
+        "mistake": "While the initial search setup is sound, the second query—“Professor Martin K. Starr POM Journal responsibility 2024”—is too narrow and may miss critical context (e.g., that Professor Starr passed away in January 2025). It does not account for potential changes due to recent events or honorific roles posthumously retained.",
+        "guidance": "When researching individuals' current roles, especially in academic journals, consider including terms like “current role,” “position,” or “editorial board” and be aware that some prominent figures may hold emeritus or honorary titles. Also, check for recent obituaries or tributes, as they often summarize a person’s latest contributions and official roles."
+      },
+      {
+        "exp_id": 25,
+        "behavior": "The student identifies the two-part question and attempts to gather information by launching a web search with targeted queries.",
+        "mistake": "While the initial search is appropriate, the student does not yet recognize that some sources may conflate different awards (e.g., confusing the \"Martin K. Starr Award in Excellence\" with other similarly named honors) or report outdated roles due to Professor Starr’s passing in early 2025. This lack of awareness could lead to misinterpretation later.",
+        "guidance": "Be cautious about award names and dates—verify whether the results refer to the exact \"Martin K. Starr Excellence Award\" and check the timeliness of role information, especially considering Professor Starr’s age and potential retirement or posthumous recognition."
+      }
+    ],
+    "Premature Result Dismissal: Ignored titled result due to lack of snippet detail despite sufficient event indication": [
+      {
+        "exp_id": 16,
+        "behavior": "The student reviewed the search results and noticed distinct announcements for both dates but interpreted the absence of detailed content preview for March 9th as a lack of announcement, while recognizing the January 12th entry had more visible details.",
+        "mistake": "The student failed to recognize that the presence of a titled announcement (\"3月9日停服更新公告\") in the search results constitutes sufficient evidence of an update event, even without clicking through; their decision to ignore or downplay this result led to incomplete analysis.",
+        "guidance": "Before proceeding, consider whether the titles and snippets themselves contain enough information to answer the question—especially if they directly name the type of announcement (e.g., “停服更新公告”). You may not need to visit every link if the nature of the update is already confirmed."
+      }
+    ],
+    "Terminological Imprecision: Missed inclusion of standard product terminology (e.g., 'AIOps') increasing noise": [
+      {
+        "exp_id": 17,
+        "behavior": "The student understands that they need to identify a specific functional module within the U-Center platform and attempts to do so by formulating search queries based on keywords from the question. They use a multi-query strategy focusing on \"知识图谱\", \"运维智能大脑\", and \"系统画像\".",
+        "mistake": "While the student's intent is correct, their queries are too broad and lack precision. Specifically, they include generic terms like “U-Center 系统画像 AI 运维” which may retrieve general results not tied to a named module. More critically, they fail to include key product-specific terminology such as “AIOps” or “智能运维管理”, which are standard naming conventions in新华三集团’s documentation. This increases noise in results and reduces the likelihood of directly retrieving the official module name.",
+        "guidance": "When searching for technical modules in enterprise platforms, always consider including standardized industry terms (like AIOps) and vendor-specific naming patterns. Try refining your search to look for \"功能模块\" + \"AIOps\" or \"智能运维管理\" alongside the technical capabilities mentioned in the question."
+      }
+    ],
+    "Unverified Cross-Source Inference: Accepted partial/ambiguous phrase from single source as confirmed fact": [
+      {
+        "exp_id": 18,
+        "behavior": "The student has identified the two key parts of the question and is attempting to gather information using a dual-query search strategy focused on \"李强 总理 第七届中国国际进口博览会 开放合作 建议\" and \"虹桥国际经济论坛 第七届进博会 主题\".",
+        "mistake": "While the approach is logical, the first query uses potentially ambiguous phrasing (\"开放合作 建议\") that may not precisely match official summaries. More critically, the student fails to verify consistency across multiple sources after retrieval—instead of extracting only confirmed consensus points (e.g., repeating phrases like “坚持重信守诺”), they later introduce unverified content such as “绿色低碳” from a single partial source.",
+        "guidance": "When reviewing search results, focus on identifying claims that appear in multiple reliable sources. Prioritize exact repeated phrases or bullet points from official reports. If a suggestion appears in only one result without corroboration, flag it for further verification rather than including it directly in your summary."
+      }
+    ],
+    "Keyword Coverage Insufficiency: Failed to include alternative expressions (e.g., '佳绩', '成绩') in query set": [
+      {
+        "exp_id": 19,
+        "behavior": "学生识别出需要获取安徽大学计算机科学与技术学院在2024年NCCA竞赛和小米技术峰会中的获奖情况，并决定通过搜索引擎来获取信息。他们构造了两个搜索关键词：“安徽大学计算机科学与技术学院 2024 NCCA竞赛 获奖情况”和“安徽大学计算机科学与技术学院 2024 小米技术峰会 荣誉情况”，并执行了搜索操作。",
+        "mistake": "搜索关键词虽然基本准确，但未能覆盖所有可能的相关表达方式（如“成绩”、“佳绩”、“校企协同创新奖”等），这可能导致遗漏关键信息源。此外，在面对零结果或弱相关结果时，没有立即调整策略或扩展关键词范围.",
+        "guidance": "在进行网络搜索时，请尝试使用多种同义词或相关术语组合，例如将“获奖情况”替换为“成绩”、“荣誉”或具体奖项名称；对于企业合作类奖项，可以加入“校企合作”、“协同创新”等关键词。同时，若首次搜索未返回有效结果，应立刻优化查询语句以提高查全率."
+      }
+    ],
+    "Asymmetric Follow-Up Effort: Pursued one lead deeply while neglecting parallel investigation of other线索": [
+      {
+        "exp_id": 20,
+        "behavior": "学生观察到NCCA竞赛有相关信息提示“取得佳绩”，但无具体奖项描述，因此判断需要进一步访问指定网页（https://cs.ahu.edu.cn/2024/1021/c11156a349782/page.htm）来确认奖项细节。对于小米技术峰会部分，则因缺乏直接信息而暂未采取深入行动.",
+        "mistake": "学生仅关注了NCCA竞赛的深入挖掘，却忽视了对小米技术峰会相关信息的多角度搜索。在已有线索表明可能存在“校企协同创新奖”的情况下，未及时调整关键词重新搜索，导致错过关键信息.",
+        "guidance": "当某一方向的信息不足时，不要只专注于单一路径的深入浏览，也应回头优化其他方向的搜索策略。例如，可尝试加入“小米 校企协同创新奖 安徽大学”作为新关键词再次搜索，确保全面覆盖潜在信息来源."
+      }
+    ],
+    "Assumptive Query Bias: Embedded unverified assumption (e.g., founding role) in query influencing result interpretation": [
+      {
+        "exp_id": 21,
+        "behavior": "The student identified the key parts of the question and used a search tool with multiple focused queries to find information about the DBCares initiative launch date and H. V. Jagadish’s involvement.",
+        "mistake": "Although the search strategy is reasonable, one of the initial search queries (\"H. V. Jagadish DBCares initiative founding role\") already contains misleading assumptions—specifically implying he had a direct founding role without verifying it first—which may bias interpretation of results.",
+        "guidance": "Be cautious not to assume specific roles or contributions in your search queries; instead, use neutral phrasing like \"H. V. Jagadish involvement in DBCares\" to avoid confirmation bias."
+      }
+    ],
+    "Source Authority Neglect: Failed to prioritize official domains (e.g., university sites) in query formulation and verification": [
+      {
+        "exp_id": 23,
+        "behavior": "The student has identified the need to locate specific information (the name of the person who授旗 and the date) and has initiated a web search using targeted keywords.",
+        "mistake": "While the search strategy is reasonable, the student fails to prioritize official sources such as the university’s own website in their query formulation. This could lead to retrieving outdated or incorrect information from third-party sites. Additionally, they do not verify whether the top results are from authoritative domains like sysu.edu.cn.",
+        "guidance": "When searching for institutional events, always prioritize official university websites—especially subdomains like cse.sysu.edu.cn. Look for articles published around mid-2017 and check if any include direct quotes or detailed reports of the ceremony."
+      }
+    ],
+    "Event Conflation Due to Surface Similarity: Mistook related event (alumni gathering) for target event (flag授旗 ceremony)": [
+      {
+        "exp_id": 24,
+        "behavior": "The student examines search output that includes both relevant and irrelevant links, including one article titled “相约中大----记2017年数据科学与计算机学院校友系列活动” dated November 11, which describes an alumni gathering but not the flag授旗 ceremony.",
+        "mistake": "The student conflates two different events—the general alumni day celebration in November with the summer flag授旗 ceremony. They rely too heavily on proximity of dates and event themes rather than concrete evidence. Furthermore, they fail to revisit the most promising link (https://cse.sysu.edu.cn/article/2320), which actually contains the correct details.",
+        "guidance": "Be cautious when interpreting event names and dates. A mention of “alumni activities” does not necessarily mean it was the flag授旗 ceremony. Focus on content that explicitly mentions “授旗仪式” and cross-check all claims against primary source texts before drawing conclusions."
+      }
+    ],
+    "Premature Result Dismissal: Ignored top-ranked result with explicit awardee info in favor of ambiguous past-year entry": [
+      {
+        "exp_id": 26,
+        "behavior": "The student reviews search results but focuses on ambiguous or misleading entries (e.g., Dr. Di Wu from 2019 and Paula Starr’s unrelated award), overlooking the most authoritative source that directly answers the question.",
+        "mistake": "The student misidentifies the awardee by selecting a name (Dr. Di Wu) associated with a past year and a different context, instead of reading the top result carefully, which explicitly states “Brad Sorenson. 2024” under the correct award listing.",
+        "guidance": "Prioritize official organizational websites like poms.org over social media or general lists; when scanning results, look for direct mappings between names and years—especially bolded or clearly formatted entries—and double-check if the cited year matches 2024 exactly."
+      }
+    ],
+    "Terminological Imprecision: Missed inclusion of standard product terminology (e.g., 'PVLDB', 'SIGMOD')": [
+      {
+        "exp_id": 27,
+        "behavior": "The student identified the core components of the question and planned a strategy to search for both the timeline of the DBCares initiative and H. V. Jagadish’s involvement, particularly around Volume 7 and the founding phase.",
+        "mistake": "While the student searched for \"H. V. Jagadish role during Volume 7\" and related terms, they did not specifically look into his editorial or leadership roles in PVLDB (Proceedings of the VLDB Endowment) during that period, which is key context missing from their initial query design.",
+        "guidance": "Consider focusing your search on H. V. Jagadish’s official roles in the VLDB Endowment, especially around 2013–2014 (which corresponds to Volume 7), as editorial positions often define influence during specific volumes. Also, check whether “founding” refers to DBCares or another initiative like PVLDB."
+      }
+    ],
+    "Unverified Cross-Source Inference: Conflated DBCares committee membership with PVLDB founding role without verification": [
+      {
+        "exp_id": 28,
+        "behavior": "The student found confirmation about the launch date of DBCares and observed H. V. Jagadish being listed on the DBCares committee website, but did not investigate his historical academic leadership roles in PVLDB.",
+        "mistake": "The student equates membership in the DBCares committee with a foundational or editorial role during Volume 7, failing to distinguish between community service (DBCares) and scholarly publishing leadership (PVLDB). This conflation leads them to overlook that his role in founding PVLDB — not DBCares — is what connects him to Volume 7.",
+        "guidance": "Be careful not to assume that participation in a modern DEI initiative like DBCares implies past editorial responsibilities. Instead, explicitly search for “H. V. Jagadish” AND “Volume 7” AND “PVLDB” or “Editor-in-Chief” to uncover direct evidence of his role during that publication cycle."
+      }
+    ],
+    "Source Authority Neglect: Relied on general web results instead of authoritative academic society websites": [
+      {
+        "exp_id": 29,
+        "behavior": "The student has decomposed the problem logically and launched a multi-query search using relevant keywords to locate information about the DBCares initiative and H. V. Jagadish’s involvement.",
+        "mistake": "While the decomposition is correct, the search strategy lacks focus on authoritative sources such as official VLDB or SIGMOD websites, which could directly provide reliable dates and roles. Instead, it relies on general web results that may not contain precise answers.",
+        "guidance": "Your breakdown of the question is good. For more accurate results, consider prioritizing official organizational websites like vldb.org or sigmod.org in your next search."
+      }
+    ],
+    "Inference Opportunity Missed: Failed to verify Volume 7 falls within Jagadish’s editorial tenure despite available dates": [
+      {
+        "exp_id": 30,
+        "behavior": "The student successfully identified the start date of DBCares from credible secondary sources and found key biographical information about H. V. Jagadish’s leadership role at PVLDB.",
+        "mistake": "The student accepts partial evidence without verifying whether Volume 7 corresponds to his term as Founding EiC (2008–2014), missing an opportunity to infer or confirm the connection between Volume 7 and his editorial tenure.",
+        "guidance": "You've found important facts. Now, check what years correspond to Volume 7 of PVLDB and see if they fall within Jagadish’s time as Founding Editor-in-Chief."
+      }
+    ],
+    "Inference Opportunity Missed: Missed logical deduction that 2014 (Vol 7) aligns with end of Jagadish’s EiC term": [
+      {
+        "exp_id": 31,
+        "behavior": "The student recognizes gaps in their knowledge regarding Volume 7 and attempts to fill them with targeted searches.",
+        "mistake": "The student does not use logical inference or cross-reference publication timelines. Since Volume 7 was published in 2014 and Jagadish served as EiC until 2014, he must have overseen Volume 7 — but this deduction is missed.",
+        "guidance": "Consider combining known facts: if Volume 7 came out in 2014 and Jagadish was EiC until 2014, then he likely oversaw it. Try looking up the publication year of Volume 7 to test this idea."
+      }
+    ],
+    "Language & Terminology Misalignment: Failed to consistently prioritize institution name in queries for affiliation check": [
+      {
+        "exp_id": 32,
+        "behavior": "The student recognizes that they need to find information about the winner of the Fifth China E-commerce Lecturer Competition National Finals held in Putian, Fujian from December 6–8, 2020, and specifically whether the winner is an alumnus of the School of Information at Renmin University. They attempt to locate this information by conducting targeted searches using combinations of key terms.",
+        "mistake": "The student’s approach is too broad and does not explicitly include “Renmin University” or “中国人民大学信息学院” as required keywords in all queries. While one query includes \"中国人民大学信息学院\", it is embedded within a longer string that may reduce precision. The failure to prioritize institutional affiliation in every search risks missing results where the individual’s background is only mentioned in passing rather than being part of the headline.",
+        "guidance": "To increase the chances of finding relevant information, ensure that every search query explicitly includes both the name of the institution (\"中国人民大学信息学院\") and the event details (competition name, year, location). This will help filter out irrelevant results and focus on sources likely to mention alumni achievements."
+      }
+    ],
+    "Event Conflation Due to Surface Similarity: Assumed relevance based on partial match (e-commerce, grand prize) without full validation": [
+      {
+        "exp_id": 33,
+        "behavior": "The student reviews the search results and notices a result referencing a “grand prize” in a similar-sounding competition—the “2020 National Cross-border E-commerce Cultural Festival Competition.” However, they do not critically assess whether this is the same event as the “Fifth China E-commerce Lecturer Competition,” nor do they confirm any connection between the winner and Renmin University.",
+        "mistake": "The student assumes relevance based on partial keyword matches (“e-commerce,” “grand prize”) without verifying the full title of the competition or the participant’s institutional affiliation. This premature assumption leads them to believe they have found indirect evidence when, in fact, the data is unrelated.",
+        "guidance": "Always verify that the competition name in the search result exactly matches the one in the question. Do not rely on similar-sounding titles. Confirm both the event identity and the person’s educational background before drawing conclusions."
+      }
+    ],
+    "Methodological Fixation Without Adaptation: Repeated ineffective queries without strategy adjustment or use of names/affiliations": [
+      {
+        "exp_id": 34,
+        "behavior": "The student repeats the same search queries even though previous attempts failed to yield clear answers. They continue focusing on general event-based searches rather than incorporating more precise identifiers like names or affiliations.",
+        "mistake": "The repetition of ineffective queries indicates a lack of adaptability. Without adjusting the search strategy—such as including known winners' names, checking university press releases, or searching Chinese sources directly—the agent remains stuck in a loop of retrieving irrelevant results.",
+        "guidance": "When repeated searches fail, pivot your strategy. Instead of reusing the same keywords, try searching official websites of institutions involved (like Renmin University), look for news articles from December 2020 onward, or search for the competition organizer’s announcements. Also consider narrowing down potential candidates through alumni networks or public databases."
+      }
+    ],
+    "Source Authority Neglect: Used English-translated queries and excluded high-authority .edu.cn domains for Chinese domestic event": [
+      {
+        "exp_id": 35,
+        "behavior": "The student continues relying on generic English-translated versions of the competition title and avoids using language-specific or domain-targeted search techniques. Their persistence in using ineffective search patterns suggests a rigid methodology.",
+        "mistake": "The student ignores linguistic and cultural context; the competition is a domestic Chinese event primarily covered in Chinese media. Using English-only or loosely translated queries severely limits access to accurate information. Additionally, excluding high-authority domains (e.g., .edu.cn sites) reduces reliability.",
+        "guidance": "For events rooted in China and organized locally, prioritize searching in Chinese using native terminology. Use tools that support Chinese input and include site filters (e.g., site:info.ruc.edu.cn) to target credible academic sources directly."
+      }
+    ],
+    "Assumptive Query Bias: Omitted direct query on central role (Founding EiC of PVLDB) despite its relevance to Volume 7": [
+      {
+        "exp_id": 36,
+        "behavior": "The student identified the core components of the question and formulated a plan to use web search to locate information about the DBCares initiative and H. V. Jagadish’s involvement.",
+        "mistake": "While the initial search strategy is sound, the student does not explicitly include a query focused on H. V. Jagadish’s specific role as Founding Editor-in-Chief of PVLDB, which is central to understanding his influence during Volume 7. This omission increases the risk of missing crucial context that would clarify his indirect but foundational leadership role.",
+        "guidance": "Remember that leadership roles such as editorships or chair positions may not be directly labeled as 'founding' but still represent significant contributions. Consider searching for official editorial roles or leadership positions held by H. V. Jagadish in PVLDB around the time of Volume 7."
+      }
+    ],
+    "Inference Opportunity Missed: Over-relied on searching instead of reasoning that Volume 7 (2014) occurred during Jagadish’s EiC term": [
+      {
+        "exp_id": 37,
+        "behavior": "The student has found accurate information about the launch date of DBCares and Jagadish’s role as Founding Editor-in-Chief but treats these as separate facts without connecting them logically.",
+        "mistake": "The student over-relies on further searching rather than reasoning from known facts—specifically, Volume 7 of PVLDB corresponds to the year 2014, which falls within Jagadish’s term as EiC. By not making this inference, they miss the opportunity to conclude his role during Volume 7.",
+        "guidance": "You already have evidence that Jagadish was the Founding Editor-in-Chief until 2014. Since Volume 7 likely refers to the 2014 edition, consider whether you can infer his role based on timeline alignment instead of seeking new sources."
+      }
+    ]
+  },
+  "final_exp": {
+    "label_pool": [
+      "Accepting absence of evidence as evidence of absence",
+      "Confusing functional description with official module name",
+      "Confusing prominent association with founding or leadership role",
+      "Failing to infer indirect role from authoritative position",
+      "Failing to transfer proven method to similar subtask",
+      "Ignoring temporal inconsistency with known facts (e.g., death)",
+      "Inferring simultaneity from spatial or contextual proximity",
+      "Overgeneralizing one suggestion to represent multiple distinct recommendations",
+      "Overlooking explicit top-result answer for inferred secondary feature",
+      "Persisting in error despite accessing correct information",
+      "Prioritizing low-reliability sources in information synthesis",
+      "Treating daily operating duration as total cumulative hours"
+    ],
+    "Overgeneralizing one suggestion to represent multiple distinct recommendations": [
+      {
+        "exp_id": 1,
+        "behavior": "The student reviewed multiple search results that consistently highlighted the three-part suggestion focusing on trust, institutional openness, and global inclusivity, along with the forum's theme.",
+        "mistake": "The student failed to accurately extract and preserve the full scope of the third recommendation—particularly its emphasis on building a \"more open, inclusive, balanced, and win-win\" global economic system—instead reducing it to a narrower interpretation about bilateral agreements.",
+        "guidance": "When summarizing official remarks, prioritize direct alignment with repeated phrases across authoritative sources; if multiple results emphasize terms like “普惠包容的经济全球化,” incorporate them verbatim to maintain accuracy."
+      },
+      {
+        "exp_id": 9,
+        "behavior": "The student has gathered search results that include partial and slightly varying descriptions of Premier Li Qiang’s three suggestions. Some sources repeat only the first suggestion, while one provides a clearer breakdown including “互利共赢” (mutual benefit and win-win).",
+        "mistake": "The student fails to recognize that the three suggestions are distinct and complementary points. Instead, they generalize all three as variations of the first suggestion (\"upholding integrity\"), ignoring the specific content of the second and third points mentioned in some sources (e.g., \"mutual benefit and win-win cooperation\" and \"fate sharing\"). This leads to an incomplete and inaccurate summary.",
+        "guidance": "When reviewing the search results, look for sources that list multiple distinct points. If different sources emphasize different aspects, consider whether these form a numbered list (e.g., “first,” “second”) and try to compile a complete set of unique suggestions rather than repeating similar phrases."
+      },
+      {
+        "exp_id": 18,
+        "behavior": "The student reviewed multiple search results and attempted to synthesize the information, noting recurring themes such as “凝聚开放共识” and “拓展开放空间”, but also included a third point—“坚持绿色低碳”—that was not consistently supported across all primary sources.",
+        "mistake": "The student did not prioritize high-reliability sources (e.g., official government portals) over commercial media, nor did they recognize that some articles only partially quote the speech. By treating all sources as equally valid, they incorporated an inaccurate third recommendation not mentioned in the standard formulation.",
+        "guidance": "Before finalizing your answer, compare the top three most authoritative sources (such as government or UN mission websites) and extract only those recommendations that are explicitly listed in the same structured format (e.g., numbered points). Disregard any additional points that do not appear in this consistent pattern."
+      }
+    ],
+    "Confusing functional description with official module name": [
+      {
+        "exp_id": 2,
+        "behavior": "The student has successfully retrieved accurate search results from authoritative sources (H3C’s official site) that explicitly describe how U-Center uses knowledge graphs and AI to build an operational intelligence brain. They recognize the core functionality described in the query but attempt to label the module based on descriptive phrases rather than extracting the actual named feature.",
+        "mistake": "The student misinterprets the descriptive function (\"构建运维智能大脑\") as the formal name of the module, rather than recognizing that this capability belongs under the officially named “智能运维管理AIOps” module, which is repeatedly referenced in the search results as the overarching intelligent operations management component.",
+        "guidance": "When reviewing search results, focus not only on what the module does, but also on what it is officially called. Look for repeated naming patterns or titles in the web snippets — especially in headings or section names — as these often indicate the real product or module name. Avoid paraphrasing functional descriptions into your own terms; instead, extract the exact name used in the source."
+      },
+      {
+        "exp_id": 4,
+        "behavior": "The student has performed a web search and found relevant documents describing how U-Center uses knowledge graphs and AI to build an operational intelligence brain. They have extracted the phrase “运维智能大脑” from the text and interpreted it as the name of the functional module.",
+        "mistake": "The student confuses a descriptive capability (“building an operations intelligent brain”) with the actual name of the functional module, failing to verify if it is an officially designated module or merely a metaphorical expression of functionality.",
+        "guidance": "When reviewing search results, pay attention to whether a term represents a formal product/module name or a general description of functionality. Look for consistent naming patterns across multiple sources and check if alternative terms (like 'AIOps', '智能运维') are used to refer to similar capabilities."
+      },
+      {
+        "exp_id": 11,
+        "behavior": "学生根据搜索结果中的原文描述，识别出“运维智能大脑”是核心成果，并认为这就是所求的功能模块名称.",
+        "mistake": "学生混淆了“功能模块的名称”和“该模块构建的目标产物”。搜索结果中的“运维智能大脑”是AI算法模型所构建的最终目标或能力，而题目询问的是实现这一目标的“功能模块”本身。学生未能区分这两个概念，导致将产出物当作了模块名.",
+        "guidance": "注意区分“模块做什么”和“模块叫什么”。搜索结果中提到“构建运维智能大脑”，说明这是某个模块的成果。请继续查找资料，确认是哪一个具体的管理模块（例如，是否名为‘智能运维管理’或‘AIOps中心’）负责执行这个构建过程."
+      },
+      {
+        "exp_id": 17,
+        "behavior": "The student reads and correctly interprets the core functionality described in the search results: using knowledge graphs for asset system profiling and combining AI to build an operational intelligence brain. They focus on descriptive phrases used in the text, particularly “构建运维智能大脑”.",
+        "mistake": "The student confuses the *functionality* (“构建运维智能大脑”) with the actual *name of the module*. In enterprise software contexts, especially in H3C/新华三 products, such capabilities are typically grouped under branded modules like “智能运维管理 (AIOps)”. By taking the descriptive phrase literally, the student fails to infer that the feature belongs to a higher-level module category explicitly named in product literature.",
+        "guidance": "Remember that technical descriptions like “构建运维智能大脑” often describe what a module does, not its official name. Look for consistent branding across multiple pages—such as repeated use of “AIOps” or “智能运维管理”—to identify the formal module name rather than extracting literal phrases from functional descriptions."
+      }
+    ],
+    "Inferring simultaneity from spatial or contextual proximity": [
+      {
+        "exp_id": 3,
+        "behavior": "The student reviewed multiple English web results indicating that MOONTON Games and the Saudi Esports Federation signed a Memorandum of Understanding (MoU), and inferred this was the agreement referenced in the question.",
+        "mistake": "The student failed to recognize that while \"MoU\" appears in English sources, the original Chinese announcement from Moonton refers to a \"战略合作协议\" (strategic cooperation agreement). The student treated the English terminology literally without cross-referencing authoritative bilingual sources or considering translation nuances.",
+        "guidance": "Be cautious when interpreting translated titles of agreements — terms like “Memorandum of Understanding” may be used in English communications to describe what is officially called a “strategic cooperation agreement” in Chinese. Always check primary sources in their original language if possible, especially when dealing with non-English-speaking stakeholders."
+      },
+      {
+        "exp_id": 7,
+        "behavior": "The student locates web results indicating that MOONTON Games and the Saudi Esports Federation signed a Memorandum of Understanding (MoU), and links this event to the award night based on contextual proximity.",
+        "mistake": "The student assumes temporal coincidence from context (e.g., “took place alongside”) implies simultaneity, without confirming whether the MoU was officially signed *on the same day* as the award. This leads to accepting incomplete evidence and misidentifying the type of agreement—confusing a general MoU with the specific \"strategic cooperation agreement\" mentioned in accurate sources.",
+        "guidance": "Do not assume agreements were signed just because events occurred around the same time. Look explicitly for confirmation of the signing date. If unsure, use a follow-up search focusing specifically on “agreement signed August 25 2024” or visit official websites to verify details."
+      },
+      {
+        "exp_id": 10,
+        "behavior": "The student infers from overlapping event reports (Esports Awards and MoU signing both in Riyadh) that the two events happened simultaneously and identifies the MoU as the relevant agreement.",
+        "mistake": "The student conflates spatial and temporal proximity (same location and general timeframe) with simultaneity. They do not cross-check the *exact dates* of both events and accept partial correlation as causation. Furthermore, they adopt the English term \"MoU\" without verifying its equivalence to the actual agreement mentioned in Chinese sources.",
+        "guidance": "Do not assume two events happened on the same day just because they were reported together. Visit primary sources like official press releases to confirm the exact date of both the award and the agreement signing. Pay attention to how agreements are named in original-language content, as translations may vary."
+      },
+      {
+        "exp_id": 12,
+        "behavior": "The student locates relevant information about both the award date and a partnership agreement between Moonton and the Saudi Esports Federation, but does not explicitly confirm whether these two events happened on the same day.",
+        "mistake": "The student makes an assumption about simultaneity without cross-referencing dates or event contexts. In reality, multiple agreements can be announced around major esports events; only one source (from the correct trajectory) confirms both the award and the strategic cooperation agreement were signed on August 25 during the Esports Awards in Riyadh.",
+        "guidance": "Before concluding that two events occurred simultaneously, always verify they share the exact date and event context. Look for phrases like “on the same day” or “during the ceremony,” and prioritize sources that mention both events together rather than inferring connections across separate articles."
+      }
+    ],
+    "Treating daily operating duration as total cumulative hours": [
+      {
+        "exp_id": 5,
+        "behavior": "The student correctly found the operating hours of the lounge (7:30 am – 6:30 pm) and recognized it spans 11 hours per day, but then reported 11 hours as the total without accounting for all six days.",
+        "mistake": "The student misunderstood the question—they calculated daily duration instead of cumulative total across December 1–6. This is a conceptual error in interpreting \"total hours\" as an aggregate sum over multiple days.",
+        "guidance": "Remember that \"total hours\" over multiple days requires multiplying daily hours by the number of days. Always double-check whether the question asks for per-day duration or the full cumulative total."
+      }
+    ],
+    "Failing to transfer proven method to similar subtask": [
+      {
+        "exp_id": 6,
+        "behavior": "The student found evidence confirming Gerald Weber as Information Director for Volume 5 (2011) but did not find explicit mention for Volume 3 (2010). They note that editors are listed for Volume 3 but refrain from further action due to lack of direct confirmation.",
+        "mistake": "The student fails to generalize the successful method used for Volume 5 (accessing front matter) to Volume 3. They accept absence of information in one source as definitive, without attempting to visit or search for the front matter of Volume 3 specifically.",
+        "guidance": "Since you successfully found the Information Director for Volume 5 in its front matter PDF, apply the same strategy to Volume 3. Look for a similarly named file (e.g., “frontmatterVol3No1.pdf”) on the official PVLDB website to check if Gerald Weber is also listed there."
+      }
+    ],
+    "Prioritizing low-reliability sources in information synthesis": [
+      {
+        "exp_id": 8,
+        "behavior": "The student has gathered search results, some of which contain accurate information from credible sources like the Ministry of Foreign Affairs website, but also includes a misleading result referencing the \"eighth\" edition of the expo.",
+        "mistake": "The student fails to critically evaluate the reliability and relevance of the search results. They integrate content from a source that references the *eighth* edition rather than the *seventh*, leading to hallucinated or inaccurate suggestions not made during the actual event.",
+        "guidance": "Always prioritize official government websites, news portals, and clearly dated sources. When multiple results conflict, give higher weight to consistent information across reputable sites and disregard entries that refer to different editions or lack clear publication details."
+      }
+    ],
+    "Overlooking explicit top-result answer for inferred secondary feature": [
+      {
+        "exp_id": 13,
+        "behavior": "The student examines search results and selects the “industrial governance platform” as the main application, associating it with the “platform + ecosystem” strategy and full-stack technical layout based on available snippets.",
+        "mistake": "The student fails to recognize that the most accurate answer is explicitly mentioned in the top search result — “工业数字大脑方案，包含工厂、企业和产业三个级别” (“Industrial Digital Brain Solution includes factory, enterprise, and industrial levels”). Instead, they focus on secondary details (like data governance functions) while missing the overarching architectural model that spans device to industrial levels.",
+        "guidance": "When reviewing search results, prioritize sources that describe a single solution covering multiple organizational levels (e.g., factory to industry). Pay close attention to phrases indicating tiered structures or cascading intelligence (e.g., “three levels,” “three-tiered brain”), as these often signal the core architecture being asked about."
+      }
+    ],
+    "Accepting absence of evidence as evidence of absence": [
+      {
+        "exp_id": 14,
+        "behavior": "The student has conducted multiple rounds of unsuccessful web searches and now believes the required information does not exist in accessible sources, leading them to terminate further investigation.",
+        "mistake": "The student confuses absence of evidence (from flawed methods) with evidence of absence (that no such record exists), resulting in early termination instead of strategic reflection or escalation (e.g., trying structured browsing, archival access, or cross-referencing).",
+        "guidance": "Do not assume information is unavailable just because automated searches fail; many official university activities are documented on internal pages only reachable through direct navigation or structured exploration of departmental websites."
+      },
+      {
+        "exp_id": 16,
+        "behavior": "The student has collected detailed information about the January 12th update and has decided that no meaningful data exists for March 9th, leading them to finalize an answer excluding one half of the required comparison.",
+        "mistake": "The student did not revisit or re-evaluate the initial search results critically and allowed an early misinterpretation (that no announcement existed for March 9th) to persist unchallenged into the final response.",
+        "guidance": "Double-check all search result titles before concluding any information is missing—especially when the query matches the event date and type. A clear title like 'X月Y日更新公告' should be treated as confirmation unless contradicted by deeper inspection."
+      },
+      {
+        "exp_id": 19,
+        "behavior": "学生成功从访问的网页中提取出安徽大学团队在NCCA 2024中获得“全国一等奖”的详细信息，完成了对该部分问题的回答。然而，基于之前无效的搜索结果，其判断小米技术峰会方面“无相关信息”.",
+        "mistake": "过早地接受了初始搜索失败的结果，未意识到即使第一次搜索失败，也可能存在可通过改写关键词找到的信息。事实上，正确的奖项名称“校企协同创新奖”已在参考答案中给出，只需稍作变体即可命中.",
+        "guidance": "即使初步搜索未果，也不要轻易下结论说“没有信息”。请尝试结合已知背景知识重构查询，比如利用常见的奖项命名模式（如“XX协同创新奖”、“XX合作奖”）来推测可能的标题，并用这些关键词重新搜索."
+      },
+      {
+        "exp_id": 26,
+        "behavior": "The student has exhausted several rounds of web searches and now believes the answer cannot be found through standard methods. They decide to terminate the inquiry and report the information as unavailable.",
+        "mistake": "The student equates \"not found via general search engines\" with \"information does not exist,\" which is incorrect. Many academic accolades are reported only on institutional websites or local news outlets that don’t rank highly in global search algorithms. By abandoning the search prematurely, the student misses accessible primary sources.",
+        "guidance": "If general searches fail, go directly to authoritative sources. Visit the official website of the Renmin University School of Information and browse its news or alumni section around December 2020. Such honors are often announced there first."
+      }
+    ],
+    "Ignoring temporal inconsistency with known facts (e.g., death)": [
+      {
+        "exp_id": 15,
+        "behavior": "The student has encountered multiple sources stating that Professor Martin K. Starr passed away in January 2025, including formal obituaries from reputable journals. Yet, they proceed to frame his role in present-tense terms, suggesting continued involvement in the POM Journal.",
+        "mistake": "The student fails to reconcile the temporal inconsistency between “current responsibility” and the subject being deceased. Even though the evidence is clear, they do not adjust their understanding accordingly, leading to a logically invalid conclusion.",
+        "guidance": "When answering questions involving “current” roles, always verify the individual's active status first. If credible sources indicate the person has passed away, then logically, they cannot have ongoing responsibilities. Frame your answer around confirmed facts—including life status—to ensure accuracy."
+      },
+      {
+        "exp_id": 21,
+        "behavior": "The student reviews the search results and extracts information from the fourth link, concluding that Professor Starr currently chairs the Council of Presidents of POMS. They do not critically evaluate conflicting or time-sensitive data across the results.",
+        "mistake": "The student overlooks a key piece of information—the January 2025 obituary—that would have indicated Professor Starr is no longer living and thus cannot hold active responsibilities. This leads to an incorrect conclusion about his current role.",
+        "guidance": "Always assess the timeliness and reliability of sources, especially when determining someone's current status. If multiple sources conflict, prioritize recent official announcements such as obituaries, memorials, or journal editorship updates, as these are more likely to reflect accurate, up-to-date information."
+      },
+      {
+        "exp_id": 23,
+        "behavior": "The student uses the visit tool to access primary sources but does not reconcile contradictory evidence—for instance, ignoring the clear 2024 listing for Brad Sorenson while focusing on incomplete data about Professor Starr’s editorial roles.",
+        "mistake": "The student exhibits confirmation bias by interpreting new information through the lens of their prior error rather than updating their understanding based on authoritative evidence. They also fail to consider that Professor Starr, having passed away in January 2025, likely no longer holds active roles.",
+        "guidance": "When visiting sources, actively compare conflicting details across pages and ask: “Which source is most recent and authoritative?” Also, consider life events (like passing) that would preclude someone from holding current positions—even if older profiles suggest otherwise."
+      }
+    ],
+    "Confusing prominent association with founding or leadership role": [
+      {
+        "exp_id": 20,
+        "behavior": "The student reviewed search results showing H. V. Jagadish mentioned in connection with DBCares and VLDB proceedings, and inferred he was a co-founder of the initiative due to his prominence in related contexts.",
+        "mistake": "The student confused association with leadership or founding status. None of the provided sources state that Jagadish founded DBCares; they only confirm broader community involvement. His actual verified role—as Founding Editor-in-Chief of PVLDB—was overlooked as more directly relevant.",
+        "guidance": "When interpreting results, distinguish between being involved in a community effort and holding an official founding role. Look specifically for titles, official announcements, or editorial statements that define formal roles rather than inferring from indirect mentions."
+      }
+    ],
+    "Persisting in error despite accessing correct information": [
+      {
+        "exp_id": 22,
+        "behavior": "The student accesses the accurate source containing both key facts: the identity of the person who performed the flag授旗 (陈征宇副书记) and the date (7月7日).",
+        "mistake": "Despite accessing the correct page, the student allows prior misconceptions (from the November 11 article) to override new, factual information. They fail to notice or properly interpret the line “我院于7月7日在学院楼A201会议室举行了授旗仪式”, choosing instead to repeat the earlier incorrect date.",
+        "guidance": "Always let the current document guide your understanding—even if it contradicts previous assumptions. If a source directly states the date and action, treat that as definitive unless there’s strong evidence otherwise. Double-check every detail you extract."
+      }
+    ],
+    "Failing to infer indirect role from authoritative position": [
+      {
+        "exp_id": 24,
+        "behavior": "The student visited external pages and extracted surface-level data — Jagadish is on the DBCares committee, and Volume 7 isn’t mentioned — leading them to stop further investigation.",
+        "mistake": "The student fails to integrate known facts: H. V. Jagadish was Founding Editor-in-Chief of PVLDB (2008–2014), and Volume 7 corresponds to 2014. Since he led the journal through that volume, it is highly likely he played a central role regardless of whether the term “Volume 7” appears in DBCares materials.",
+        "guidance": "Even if a document doesn’t mention a specific detail (like “Volume 7”), you can infer connections logically using verified timelines. For example, knowing that Volume 7 of PVLDB was published in 2014 and that Jagadish was EiC until 2014 suggests strong involvement. Search for confirmation of his tenure overlapping with Volume 7 instead of requiring exact phrase matches."
+      },
+      {
+        "exp_id": 25,
+        "behavior": "The student synthesizes available data but fails to make reasonable inferences from established facts, such as linking institutional leadership with initiative involvement.",
+        "mistake": "The student treats absence of explicit mention as absence of involvement, failing to recognize that high-level leaders often shape initiatives indirectly even if not named as founders.",
+        "guidance": "Even if someone isn't explicitly named as a founder, people in top leadership positions during an initiative’s launch are often involved. Consider how Jagadish’s position might imply indirect influence."
+      },
+      {
+        "exp_id": 27,
+        "behavior": "The student locates primary source evidence from an official website stating Jagadish was a committee member of DBCares, and uses it to draw a conclusion about his lack of founding role.",
+        "mistake": "The student equates being a “committee member” with not having a leadership or foundational role, ignoring that the standard answer credits him not as a DBCares founder but as the Founding EiC of PVLDB—a different but related contribution critical to Volume 7.",
+        "guidance": "Be careful not to conflate different initiatives. DBCares and PVLDB are distinct; your focus should be on his role in PVLDB Volume 7, not just DBCares membership. Revisit what being Founding Editor-in-Chief means for his influence during Volume 7."
+      }
+    ]
+  }
+}
