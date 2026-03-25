@@ -80,7 +80,7 @@ bash scripts/start_vllm_8b.sh
 Then run standard ReAct inference to collect trajectories (5 rollouts per query):
 
 ```bash
-python scripts/run_inference.py --config configs/vanilla-vllm.yaml
+python scripts/run_inference.py --config configs/vanilla-vllm-entropy.yaml
 ```
 
 #### Step 2-2: Build the Experience Knowledge Base
