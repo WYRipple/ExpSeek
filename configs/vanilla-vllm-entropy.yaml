@@ -1,0 +1,53 @@
+# configs/vanilla-vllm-entropy.yaml
+
+# ======= Mode =======
+compute_entropy: true       
+need_guidance: false        
+use_guide_model: false
+zero_exp: false
+ablate: full
+guidance_interval: 1
+
+# ======= Entropy Model =======
+entropy_devices: "2,3"
+entropy_model_path: xxx/Qwen3-8B
+entropy_model_str: Qwen3-8B
+
+
+# ======= Inference Model =======
+model_mode: vllm
+model_name: Qwen3-8B
+api_base: http://localhost:8012/v1
+api_key: EMPTY
+temperature: 1
+top_p: 0.95
+
+# ======= Summary Model =======
+sum_model_name: qwen3-235b-a22b-instruct-2507
+sum_api_base: https://dashscope.aliyuncs.com/compatible-mode/v1
+sum_api_key: sk-xxx
+
+# ======= Run Settings =======
+time_stamp: now
+dataset: webwalker_train_demo
+use_debug: false
+roll_out_count: 5
+max_retries: 3
+max_workers: 5
+max_call_per_run: 30
+response_budget: 500
+max_tokens: 32768
+
+# ======= Tools =======
+visit_path: expseek/tools/visit_memory.jsonl
+jina_key: jina_xxx
+brightdata_key: xxx
+brightdata_zone: xxx
+brightdata_location: en
+
+# ======= Unused =======
+exp_kb_path: ""
+guide_model_name: ""
+guide_api_base: ""
+guide_api_key: ""
+embedding_kb_path: ""
