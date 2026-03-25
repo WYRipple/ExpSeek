@@ -1,0 +1,126 @@
+================================================================================
+Evaluation Results
+Eval dir : outputs/Qwen3-8B-webwalker_train_demo/eval_results
+Rounds   : 5
+================================================================================
+
+Individual Round Statistics:
+----------------------------------------
+  K=1:
+    Accuracy              : 0.6667 (66.67%)
+    Success Samples       : 30
+    All Samples           : 30
+    Avg Tokens (Success)  : 3603.07
+    Avg Tokens (All)      : 3603.07
+    Avg Steps  (Success)  : 2.40
+    Avg Steps  (All)      : 2.40
+    Avg Time              : 18.64s
+    Median Time           : 15.65s
+    Time Range            : [9.21s, 42.73s]
+    Total Time            : 559.11s
+  K=2:
+    Accuracy              : 0.7333 (73.33%)
+    Success Samples       : 30
+    All Samples           : 30
+    Avg Tokens (Success)  : 3650.70
+    Avg Tokens (All)      : 3650.70
+    Avg Steps  (Success)  : 2.43
+    Avg Steps  (All)      : 2.43
+    Avg Time              : 20.32s
+    Median Time           : 12.70s
+    Time Range            : [7.06s, 96.86s]
+    Total Time            : 609.56s
+  K=3:
+    Accuracy              : 0.7333 (73.33%)
+    Success Samples       : 30
+    All Samples           : 30
+    Avg Tokens (Success)  : 3882.73
+    Avg Tokens (All)      : 3882.73
+    Avg Steps  (Success)  : 2.33
+    Avg Steps  (All)      : 2.33
+    Avg Time              : 21.50s
+    Median Time           : 13.79s
+    Time Range            : [8.27s, 74.79s]
+    Total Time            : 644.89s
+  K=4:
+    Accuracy              : 0.7000 (70.00%)
+    Success Samples       : 30
+    All Samples           : 30
+    Avg Tokens (Success)  : 3621.00
+    Avg Tokens (All)      : 3621.00
+    Avg Steps  (Success)  : 2.43
+    Avg Steps  (All)      : 2.43
+    Avg Time              : 19.54s
+    Median Time           : 16.66s
+    Time Range            : [9.30s, 40.61s]
+    Total Time            : 586.33s
+  K=5:
+    Accuracy              : 0.6000 (60.00%)
+    Success Samples       : 30
+    All Samples           : 30
+    Avg Tokens (Success)  : 3714.43
+    Avg Tokens (All)      : 3714.43
+    Avg Steps  (Success)  : 2.43
+    Avg Steps  (All)      : 2.43
+    Avg Time              : 19.43s
+    Median Time           : 13.74s
+    Time Range            : [8.96s, 44.31s]
+    Total Time            : 582.88s
+
+Overall Statistics:
+----------------------------------------
+  Mean Accuracy              : 0.6867 (68.67%)
+  Total Success Samples      : 150
+  Total All Samples          : 150
+  Overall Avg Tokens (Success): 3694.39
+  Overall Avg Tokens (All)   : 3694.39
+  Overall Avg Steps  (Success): 2.41
+  Overall Avg Steps  (All)   : 2.41
+
+Time Statistics:
+----------------------------------------
+  Total Samples with Time   : 150
+  Avg Time per Sample       : 19.89s
+  Median Time per Sample    : 14.31s
+  Time Range                : [7.06s, 96.86s]
+  Total Time (All Rounds)   : 2982.77s (0.83h)
+
+Guide Tag Statistics (averaged across all rounds):
+----------------------------------------
+  Files with guide_tag: 5/5
+
+  Tag=1 (Process Guidance):
+    Avg Ratio (of assistants) : 0.0000 (0.00%)
+    Avg Per Sample            : 0.0000
+  Tag=2 (Answer Guidance):
+    Avg Ratio (of assistants) : 0.0000 (0.00%)
+    Avg Per Sample            : 0.0000
+  Tag=1 or 2 (Any Guidance):
+    Avg Ratio (of assistants) : 0.0000 (0.00%)
+    Avg Per Sample            : 0.0000
+  Tag=3 (Token Limit):
+    Avg Ratio (of assistants) : 0.0000 (0.00%)
+    Avg Per Sample            : 0.0000
+  Tag=4 (Content Safety):
+    Avg Ratio (of assistants) : 0.0000 (0.00%)
+    Avg Per Sample            : 0.0000
+  Tag=5 (Format Error):
+    Avg Ratio (of assistants) : 0.0000 (0.00%)
+    Avg Per Sample            : 0.0000
+
+Pass@K:
+----------------------------------------
+  Pass@1: 0.6667 (66.67%)
+  Pass@2: 0.7667 (76.67%)
+  Pass@3: 0.8333 (83.33%)
+  Pass@4: 0.8333 (83.33%)
+  Pass@5: 0.8667 (86.67%)
+
+Consistency Statistics:
+----------------------------------------
+  Total Samples : 30
+  All Correct   : 13 (43.33%)
+  All Wrong     : 4 (13.33%)
+  Mixed         : 13 (43.33%)
+
+================================================================================
