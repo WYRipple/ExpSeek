@@ -12,7 +12,9 @@ ReAct implementation, the core method, and various ablation study configurations
 
 ## 📖 Introduction
 
-![Framework Overview](assets/framework.png)
+<div align="center">
+  <img src="assets/framework.png" style="width:50%; height:auto;" />
+</div>
 
 We propose **ExpSeek**, a novel paradigm for experience utilization in web agents:
 
@@ -43,7 +45,7 @@ Before getting started, please ensure you have the following:
 4. **Web search API key** — this project uses BrightData; 
    obtain at [https://www.bright.cn](https://www.bright.cn).
 
----
+
 
 ### Step 1: Set Up the Environment
 
@@ -60,7 +62,7 @@ pip install -r requirements.txt
 > [https://github.com/Dao-AILab/flash-attention/releases/tag/v2.7.4.post1](https://github.com/Dao-AILab/flash-attention/releases/tag/v2.7.4.post1)  
 > Look for: `flash_attn-2.7.4.post1+cu12torch2.4cxx11abiFALSE-cp310-cp310-linux_x86_64.whl`
 
----
+
 
 ### Step 2: Build the Offline Experience Knowledge Base
 
@@ -75,8 +77,7 @@ First, launch the vllm inference server with Qwen3-8B:
 bash scripts/start_vllm_8b.sh
 ```
 
-Then run standard ReAct inference to collect trajectories  
-(5 rollouts per query):
+Then run standard ReAct inference to collect trajectories (5 rollouts per query):
 
 ```bash
 python scripts/run_inference.py --config configs/vanilla-vllm.yaml
@@ -96,7 +97,7 @@ the embedding API key is configured beforehand.
 > queries under `experience_base/demo/Qwen3-8B/` for reference.  
 > You can set `EXP_KB_DIR` to a custom path to generate your own experience base.
 
----
+
 
 ### Step 3: Run Inference with Experience Augmentation
 
@@ -108,7 +109,7 @@ Before running, ensure you have:
 python scripts/run_inference.py --config configs/expseek_core.yaml
 ```
 
----
+
 
 ### Step 4: Evaluate
 
