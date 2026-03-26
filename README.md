@@ -1,5 +1,13 @@
 # ExpSeek: Self-Triggered Experience Seeking for Web Agents
 
+<div align="center">
+  <a href="https://arxiv.org/abs/2601.08605"><img alt="arXiv"
+    src="https://img.shields.io/badge/arXiv-Paper-red?logo=arxiv"/></a>
+  <a href="doc/expseek_documentation.md"><img alt="English Documentation"
+    src="https://img.shields.io/badge/Docs-English-blue"/></a>
+  <a href="doc/expseek_documentation_zh.md"><img alt="中文文档"
+    src="https://img.shields.io/badge/Docs-中文-green"/></a>
+</div>
 
 ## 🚀 Release
 
@@ -120,8 +128,9 @@ bash run_eval.sh
 Evaluation results will be saved in the corresponding output directory.  
 We provide detailed result logs for reference.
 
-> 📄 A comprehensive parameter reference document is also provided.  
-> The codebase is highly flexible — we recommend reading it before customizing 
+> 📄 Comprehensive parameter reference documents are also provided:  
+> [English Documentation](doc/expseek_documentation.md) | [中文文档](doc/expseek_documentation_zh.md)  
+> The codebase is highly flexible — we recommend reading them before customizing
 > your experiments.
 
 
