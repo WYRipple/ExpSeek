@@ -13,11 +13,11 @@
    - 4.2 [所有参数详解](#42-所有参数详解)
 5. [分步骤操作指南](#5-分步骤操作指南)
    - 5.1 [启动 vLLM 推理服务](#51-启动-vllm-推理服务)
-   - 5.2 [阶段一：离线知识库构建](#52-阶段一离线知识库构建)
+   - 5.2 [阶段一：离线经验库构建](#52-阶段一离线经验库构建)
    - 5.3 [阶段二：经验增强推理](#53-阶段二经验增强推理)
    - 5.4 [阶段三：评估](#54-阶段三评估)
 6. [输出目录结构](#6-输出目录结构)
-7. [知识库文件结构](#7-知识库文件结构)
+7. [经验库文件结构](#7-经验库文件结构)
 8. [熵触发机制说明](#8-熵触发机制说明)
 9. [适配其他模型](#9-适配其他模型)
 10. [常见问题](#10-常见问题)
@@ -30,7 +30,7 @@ ExpSeek 的完整运行分为三个阶段，依次执行：
 
 ```mermaid
 graph LR
-    A["阶段一（离线）<br/>构建经验知识库<br/>run_build_kb.sh"]
+    A["阶段一（离线）<br/>构建经验库<br/>run_build_kb.sh"]
     B["阶段二（在线）<br/>经验增强推理<br/>run_expseek.sh"]
     C["阶段三<br/>评估结果<br/>run_eval.sh"]
     A --> B --> C
@@ -45,7 +45,7 @@ graph LR
 |------|------|---------|
 | **推理模型** | 执行 ReAct 推理的 Web Agent | Qwen3-8B（本地 vLLM） |
 | **熵计算模型** | 计算每步的 token 级熵值 | 与推理模型相同 |
-| **引导模型** | 基于上下文和知识库生成 guidance | Qwen3-235B-A22B（API） |
+| **引导模型** | 基于上下文和库生成 guidance | Qwen3-235B-A22B（API） |
 | **摘要模型** | 在 visit 工具内部对网页内容做摘要 | Qwen3-235B-A22B（API） |
 | **评估模型** | LLM-as-a-judge 评估预测是否正确 | Qwen3-235B-A22B（API） |
 
@@ -64,7 +64,7 @@ EXPSEEK-MAIN/
 │   ├── webwalker_test.jsonl     # WebWalkerQA 测试集
 │   ├── webwalker_train.jsonl    # WebWalkerQA 完整训练集（170 条）
 │   └── webwalker_train_demo.jsonl  # 精简 demo 训练集（30 条）
-├── experience_base/             # 经验知识库存放目录
+├── experience_base/             # 经验库存放目录
 │   └── demo/
 │       ├── Qwen3-8B/            # demo KB（由 30 条训练样本构建）
 │       │   └── embedding/       # embedding 索引（Step 6 产物）
@@ -107,7 +107,7 @@ webwalker_train_demo.jsonl（或完整训练集）
   outputs/.../eval_results/eval_round*.jsonl
         │
         ▼
-[阶段一：构建知识库]  ←─ run_build_kb.sh
+[阶段一：构建经验库]  ←─ run_build_kb.sh
   ├── Step 1：聚合 rollout → pair.jsonl
   ├── Step 2：LLM 生成经验三元组 → pair-EXP.jsonl
   ├── Step 3：LLM 标注 topic → EXP-KB-process-label.jsonl
@@ -139,7 +139,7 @@ webwalker_train_demo.jsonl（或完整训练集）
 | `vanilla-vllm-entropy.yaml` | 收集训练轨迹（构建 KB 用） | ✅ | ❌ | ❌ | — | — |
 | `vanilla-api.yaml` | 基础 ReAct，使用 API 模型 | ❌ | ❌ | ❌ | — | — |
 | `expseek_core.yaml` | **完整 ExpSeek（推荐）** | ✅ | ✅ | ✅ | ❌ | full |
-| `expseek_zero.yaml` | 消融：不使用 KB，引导模型仅依赖自身知识 | ✅ | ✅ | ✅ | ✅ | full |
+| `expseek_zero.yaml` | 消融：不使用 KB，引导模型仅依赖自身经验 | ✅ | ✅ | ✅ | ✅ | full |
 | `expseek_emb.yaml` | 消融：embedding 检索替代生成式引导 | ✅ | ✅ | ❌ | ❌ | full |
 | `ablate_only_answer.yaml` | 消融：仅引导 answer 步 | ✅ | ✅ | ✅ | ❌ | only_answer |
 | `ablate_only_process.yaml` | 消融：仅引导 process 步 | ✅ | ✅ | ✅ | ❌ | only_process |
@@ -157,7 +157,7 @@ webwalker_train_demo.jsonl（或完整训练集）
 | `compute_entropy` | bool | 是否启动熵计算服务并计算每步的 token 级平均熵。设为 `false` 时不占用额外 GPU，适用于 vanilla 基线。 |
 | `need_guidance` | bool | 是否在推理过程中注入经验引导。必须在 `compute_entropy: true` 时才能开启。 |
 | `use_guide_model` | bool | 当 `need_guidance: true` 时，控制引导内容的生成方式。`true` 表示使用两阶段 LLM 生成（topic 选择 + 引导生成）；`false` 表示使用 embedding 最近邻检索（需配置 `embedding_kb_path`）。 |
-| `zero_exp` | bool | 设为 `true` 时，引导模型不读取经验知识库，仅凭自身世界知识生成引导。 |
+| `zero_exp` | bool | 设为 `true` 时，引导模型不读取经验库，仅凭自身世界经验生成引导。 |
 | `ablate` | str | 控制哪些步骤类型会收到引导。`full` = process 步和 answer 步都引导；`only_process` = 仅 process 步；`only_answer` = 仅 answer 步。 |
 | `guidance_interval` | int | 每次引导注入后的冷却步数。`0` = 无限制，每步都可触发；`1` = 注入后下一步静默；`2` = 注入后连续两步静默。增大该值会降低引导频率和 API 开销。 |
 
@@ -190,7 +190,7 @@ webwalker_train_demo.jsonl（或完整训练集）
 
 ---
 
-#### 经验知识库
+#### 经验库
 
 | 参数 | 类型 | 说明 |
 |------|------|------|
@@ -201,7 +201,7 @@ webwalker_train_demo.jsonl（或完整训练集）
 
 #### 引导模型
 
-仅在 `need_guidance: true` 且 `use_guide_model: true` 时生效。引导模型执行两阶段生成：首先从知识库中选出 3 个最相关的 topic，再基于这些 topic 下的经验三元组和当前上下文生成个性化引导。
+仅在 `need_guidance: true` 且 `use_guide_model: true` 时生效。引导模型执行两阶段生成：首先从经验库中选出 3 个最相关的 topic，再基于这些 topic 下的经验三元组和当前上下文生成个性化引导。
 
 | 参数 | 类型 | 说明 |
 |------|------|------|
@@ -315,7 +315,7 @@ tail -f logs/vllm_qwen3_8b.log
 
 ---
 
-### 5.2 阶段一：离线知识库构建
+### 5.2 阶段一：离线经验库构建
 
 所有六个步骤由 `run_build_kb.sh` 统一调度。运行前请先编辑脚本顶部的变量：
 
@@ -378,7 +378,7 @@ bash run_build_kb.sh
 
 ---
 
-#### Step 4 — 构建结构化知识库（`offline/step4_build_kb.py`）
+#### Step 4 — 构建结构化经验库（`offline/step4_build_kb.py`）
 
 **输入：**
 - `{EXP_KB_DIR}/EXP-KB-process-label.jsonl`
@@ -386,7 +386,7 @@ bash run_build_kb.sh
 
 **输出：** `{EXP_KB_DIR}/EXP-KB.json`
 
-将带有 topic 标注的经验条目整理为最终的结构化 JSON 格式，供推理阶段直接加载使用。KB 的具体格式见[第 7 节](#7-知识库文件结构)。若 `EXP-KB.json` 已存在则自动跳过。
+将带有 topic 标注的经验条目整理为最终的结构化 JSON 格式，供推理阶段直接加载使用。KB 的具体格式见[第 7 节](#7-经验库文件结构)。若 `EXP-KB.json` 已存在则自动跳过。
 
 ---
 
@@ -570,7 +570,7 @@ outputs/
 
 ---
 
-## 7. 知识库文件结构
+## 7. 经验库文件结构
 
 Step 4 产生的 `EXP-KB.json` 结构如下：
 
