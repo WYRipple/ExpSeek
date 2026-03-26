@@ -14,11 +14,11 @@ This document is a complete parameter reference manual for ExpSeek, serving as a
 5. [Step-by-Step Operation Guide](#5-step-by-step-operation-guide)
 
    * 5.1 [Start the vLLM Inference Service](#51-start-the-vllm-inference-service)
-   * 5.2 [Stage 1: Offline Experience Base Construction](#52-stage-1-offline-knowledge-base-construction)
+   * 5.2 [Stage 1: Offline Experience Base Construction](#52-stage-1-offline-experience-base-construction)
    * 5.3 [Stage 2: Experience-Augmented Inference](#53-stage-2-experience-augmented-inference)
    * 5.4 [Stage 3: Evaluation](#54-stage-3-evaluation)
 6. [Output Directory Structure](#6-output-directory-structure)
-7. [Experience Base File Structure](#7-knowledge-base-file-structure)
+7. [Experience Base File Structure](#7-experience-base-file-structure)
 8. [Entropy Triggering Mechanism](#8-entropy-triggering-mechanism)
 9. [Adapting to Other Models](#9-adapting-to-other-models)
 10. [Frequently Asked Questions](#10-frequently-asked-questions)
@@ -29,7 +29,7 @@ The complete execution of ExpSeek is divided into three stages, executed in sequ
 
 ```mermaid
 graph LR
-    A["Stage 1 (Offline)<br/>Build Experience Knowledge Base<br/>run_build_kb.sh"]
+    A["Stage 1 (Offline)<br/>Build Experience Base<br/>run_build_kb.sh"]
     B["Stage 2 (Online)<br/>Experience-Augmented Inference<br/>run_expseek.sh"]
     C["Stage 3<br/>Evaluate Results<br/>run_eval.sh"]
     A --> B --> C
@@ -41,7 +41,7 @@ The entire system involves the following model roles:
 | ----------------------------- | --------------------------------------------------------------- | --------------------------- |
 | **Inference Model**           | Web Agent that performs ReAct reasoning                         | Qwen3-8B (local vLLM)       |
 | **Entropy Computation Model** | Computes token-level entropy for each step                      | Same as the inference model |
-| **Guide Model**               | Generates guidance based on context and the knowledge base      | Qwen3-235B-A22B (API)       |
+| **Guide Model**               | Generates guidance based on context and the experience base      | Qwen3-235B-A22B (API)       |
 | **Summarization Model**       | Summarizes webpage content inside the visit tool                | Qwen3-235B-A22B (API)       |
 | **Evaluation Model**          | LLM-as-a-judge that evaluates whether the prediction is correct | Qwen3-235B-A22B (API)       |
 
@@ -60,7 +60,7 @@ EXPSEEK-MAIN/
 │   ├── webwalker_test.jsonl     # WebWalkerQA test set
 │   ├── webwalker_train.jsonl    # Full WebWalkerQA training set (170 samples)
 │   └── webwalker_train_demo.jsonl  # Reduced demo training set (30 samples)
-├── experience_base/             # Directory for storing the experience knowledge base
+├── experience_base/             # Directory for storing the experience base
 │   └── demo/
 │       ├── Qwen3-8B/            # demo KB (built from 30 training samples)
 │       │   └── embedding/       # embedding index (output of Step 6)
@@ -103,7 +103,7 @@ webwalker_train_demo.jsonl (or the full training set)
   outputs/.../eval_results/eval_round*.jsonl
         │
         ▼
-[Stage 1: Build Knowledge Base]  ←─ run_build_kb.sh
+[Stage 1: Build Experience Base]  ←─ run_build_kb.sh
   ├── Step 1: Aggregate rollouts → pair.jsonl
   ├── Step 2: LLM generates experience triplets → pair-EXP.jsonl
   ├── Step 3: LLM labels topics → EXP-KB-process-label.jsonl
@@ -136,7 +136,7 @@ The project provides 8 configuration files corresponding to different running mo
 | `vanilla-vllm-entropy.yaml` | Collect training trajectories (for building the KB)                |         ✅         |        ❌        |         ❌         |      —     |       —      |
 | `vanilla-api.yaml`          | Basic ReAct, using API model                                       |         ❌         |        ❌        |         ❌         |      —     |       —      |
 | `expseek_core.yaml`         | **Full ExpSeek (recommended)**                                     |         ✅         |        ✅        |         ✅         |      ❌     |     full     |
-| `expseek_zero.yaml`         | Ablation: no KB used, guide model relies only on its own knowledge |         ✅         |        ✅        |         ✅         |      ✅     |     full     |
+| `expseek_zero.yaml`         | Ablation: no KB used, guide model relies only on its own experience |         ✅         |        ✅        |         ✅         |      ✅     |     full     |
 | `expseek_emb.yaml`          | Ablation: embedding retrieval replaces generative guidance         |         ✅         |        ✅        |         ❌         |      ❌     |     full     |
 | `ablate_only_answer.yaml`   | Ablation: guide only answer steps                                  |         ✅         |        ✅        |         ✅         |      ❌     |  only_answer |
 | `ablate_only_process.yaml`  | Ablation: guide only process steps                                 |         ✅         |        ✅        |         ✅         |      ❌     | only_process |
@@ -154,7 +154,7 @@ The project provides 8 configuration files corresponding to different running mo
 | `compute_entropy`   | bool | Whether to start the entropy computation service and compute the token-level average entropy for each step. When set to `false`, no extra GPU is occupied, which is suitable for vanilla baselines.                                                                   |
 | `need_guidance`     | bool | Whether to inject experience guidance during inference. It can only be enabled when `compute_entropy: true`.                                                                                                                                                          |
 | `use_guide_model`   | bool | When `need_guidance: true`, controls how the guidance content is generated. `true` means using two-stage LLM generation (topic selection + guidance generation); `false` means using embedding nearest-neighbor retrieval (requires configuring `embedding_kb_path`). |
-| `zero_exp`          | bool | When set to `true`, the guide model does not read the experience knowledge base and generates guidance only from its own world knowledge.                                                                                                                             |
+| `zero_exp`          | bool | When set to `true`, the guide model does not read the experience base and generates guidance only from its own world experience.                                                                                                                             |
 | `ablate`            | str  | Controls which step types will receive guidance. `full` = both process steps and answer steps are guided; `only_process` = only process steps; `only_answer` = only answer steps.                                                                                     |
 | `guidance_interval` | int  | Cooldown steps after each guidance injection. `0` = no limit, can trigger at every step; `1` = the next step is silent after injection; `2` = two consecutive silent steps after injection. Increasing this value reduces the guidance frequency and API cost.        |
 
@@ -187,7 +187,7 @@ These four values define the probabilistic triggering interval, estimated by boo
 
 ---
 
-#### Experience Knowledge Base
+#### Experience Base
 
 | Parameter           | Type | Description                                                                                                                                                  |
 | ------------------- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -198,7 +198,7 @@ These four values define the probabilistic triggering interval, estimated by boo
 
 #### Guide Model
 
-Only takes effect when `need_guidance: true` and `use_guide_model: true`. The guide model performs two-stage generation: first selecting the 3 most relevant topics from the knowledge base, and then generating personalized guidance based on the experience triplets under those topics and the current context.
+Only takes effect when `need_guidance: true` and `use_guide_model: true`. The guide model performs two-stage generation: first selecting the 3 most relevant topics from the experience base, and then generating personalized guidance based on the experience triplets under those topics and the current context.
 
 | Parameter          | Type | Description                                                                                                                                                                                                                         |
 | ------------------ | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -312,7 +312,7 @@ If you need to run Qwen3-32B, adjust `MODEL_PATH`, `MODEL_NAME`, `CUDA_VISIBLE_D
 
 ---
 
-### 5.2 Stage 1: Offline Knowledge Base Construction
+### 5.2 Stage 1: Offline Experience Base Construction
 
 All six steps are uniformly orchestrated by `run_build_kb.sh`. Before running, please edit the variables at the top of the script:
 
@@ -376,7 +376,7 @@ The script has a complete checkpoint resume mechanism: after each batch is proce
 
 ---
 
-#### Step 4 — Build the structured knowledge base (`offline/step4_build_kb.py`)
+#### Step 4 — Build the structured experience base (`offline/step4_build_kb.py`)
 
 **Input:**
 
@@ -385,7 +385,7 @@ The script has a complete checkpoint resume mechanism: after each batch is proce
 
 **Output:** `{EXP_KB_DIR}/EXP-KB.json`
 
-Organizes the experience entries with topic labels into the final structured JSON format for direct loading during the inference stage. The specific format of the KB is described in [Section 7](#7-knowledge-base-file-structure). If `EXP-KB.json` already exists, it is automatically skipped.
+Organizes the experience entries with topic labels into the final structured JSON format for direct loading during the inference stage. The specific format of the KB is described in [Section 7](#7-experience-base-file-structure). If `EXP-KB.json` already exists, it is automatically skipped.
 
 ---
 
