@@ -11,10 +11,12 @@
 
 ## 🚀 Release
 
-**[2025/03/25]** We have open-sourced the ExpSeek codebase, including a lightweight 
+**[2025/04/06]** 🎉 This paper has been accepted to ACL 2026 (Findings)!
+
+**[2025/03/25]** 🔥 We have open-sourced the ExpSeek codebase, including a lightweight 
 ReAct implementation, the core method, and various ablation study configurations.
 
-**[2025/01/13]** We have released our paper on arXiv:
+**[2025/01/13]** 🔥 We have released our paper on arXiv:
 [ExpSeek: Self-Triggered Experience Seeking for Web Agents](https://arxiv.org/abs/2601.08605)
 
 
