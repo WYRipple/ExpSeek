@@ -1,4 +1,4 @@
-# ExpSeek: Self-Triggered Experience Seeking for Web Agents
+# [ACL 2026] ExpSeek: Self-Triggered Experience Seeking for Web Agents
 
 <div align="center">
   <a href="https://arxiv.org/abs/2601.08605"><img alt="arXiv"
