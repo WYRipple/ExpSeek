@@ -141,13 +141,27 @@ We provide detailed result logs for reference.
 If you find our work useful, please consider citing our paper:
 
 ```bibtex
-@misc{zhang2026expseekselftriggeredexperienceseeking,
-      title={ExpSeek: Self-Triggered Experience Seeking for Web Agents}, 
-      author={Wenyuan Zhang and Xinghua Zhang and Haiyang Yu and Shuaiyi Nie and Bingli Wu and Juwei Yue and Tingwen Liu and Yongbin Li},
-      year={2026},
-      eprint={2601.08605},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2601.08605}, 
+@inproceedings{zhang-etal-2026-expseek,
+    title = "{E}xp{S}eek: Self-Triggered Experience Seeking for Web Agents",
+    author = "Zhang, Wenyuan  and
+      Zhang, Xinghua  and
+      Yu, Haiyang  and
+      Nie, Shuaiyi  and
+      Wu, Bingli  and
+      Yue, Juwei  and
+      Liu, Tingwen  and
+      Li, Yongbin",
+    editor = "Liakata, Maria  and
+      Moreira, Viviane P.  and
+      Zhang, Jiajun  and
+      Jurgens, David",
+    booktitle = "Findings of the {A}ssociation for {C}omputational {L}inguistics: {ACL} 2026",
+    month = jul,
+    year = "2026",
+    address = "San Diego, California, United States",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2026.findings-acl.1462/",
+    pages = "29255--29283",
+    ISBN = "979-8-89176-395-1",
 }
 ```
